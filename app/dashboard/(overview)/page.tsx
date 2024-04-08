@@ -1,8 +1,12 @@
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import { lusitana } from '@/app/ui/fonts';
-import { fetchCardData, fetchLatestInvoices, fetchRevenue } from '../lib/data';
-import LatestInvoices from '../ui/dashboard/latest-invoices';
-import { Card } from '../ui/dashboard/cards';
+import {
+  fetchCardData,
+  fetchLatestInvoices,
+  fetchRevenue,
+} from '../../lib/data';
+import { Card } from '../../ui/dashboard/cards';
+import LatestInvoices from '../../ui/dashboard/latest-invoices';
 
 export default async function Page() {
   const revenue = await fetchRevenue();
@@ -13,12 +17,6 @@ export default async function Page() {
     totalPaidInvoices,
     totalPendingInvoices,
   } = await fetchCardData();
-  console.log({
-    numberOfCustomers,
-    numberOfInvoices,
-    totalPaidInvoices,
-    totalPendingInvoices,
-  });
 
   return (
     <main>
